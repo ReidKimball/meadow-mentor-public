@@ -4,15 +4,15 @@
 
 **Live app:** [meadowmentor.com](https://meadowmentor.com)
 
-Meadow Mentor helps people with IBD, IBS, Crohn's, Ulcerative Colitis, and related autoimmune/gut-inflammation conditions stick to therapeutic diets. The app combines AI ingredient analysis, a compliance-scoring food journal, AI recipe generation, and personalized meal planning across five different therapeutic diets.
+Meadow Mentor helps people with IBD, IBS, Crohn's, Ulcerative Colitis, and related autoimmune/gut-inflammation conditions stick to therapeutic diets. The app combines AI recipe generation, AI coaching, and personalized meal planning across four different therapeutic diets.
 
 ---
 
 ## Why I built this
 
-I wanted to ship a real product that solves a problem I understand. People newly diagnosed with inflammatory conditions are often handed a complex therapeutic diet (SCD, GAPS, Paleo AIP, Mediterranean, low-fiber) with little practical guidance. The cognitive load of "is this ingredient compliant?" multiple times per day is exhausting. Meadow Mentor offloads that decision to AI.
+I wanted to ship a real product that solves a problem I understand. People newly diagnosed with inflammatory conditions are often handed a complex therapeutic diet (SCD, GAPS, Paleo AIP, Mediterranean) with little practical guidance. The cognitive load of "is this ingredient allowed?" multiple times per day is exhausting. Meadow Mentor is the personal coach that guides people, one meal at a time.
 
-This is a **production application** with paying users — not a tutorial project.
+This is a **production application** with real users — not a tutorial project.
 
 ---
 
@@ -73,16 +73,12 @@ This is a **production application** with paying users — not a tutorial projec
 
 ## Features
 
-- **AI ingredient label analysis** — paste or photograph an ingredient list and get diet-compliance scoring
-- **Food journal with compliance scoring** — log meals, get instant pass/fail per diet
 - **AskKay** — streaming AI chat with diet-aware persona
 - **AI recipe generation** — generate compliant recipes from available ingredients
-- **Meal-to-compliant conversion** — turn a non-compliant meal into a compliant version
 - **AI weekly meal plan** — generate a 7-day plan
 - **Saved recipes** — persist and share AI-generated recipes
-- **Premium tier** — meal-history analysis, higher API limits, priority access
 
-Five therapeutic diets supported: Mediterranean, Specific Carbohydrate Diet (SCD), GAPS, Paleo Autoimmune Protocol (AIP), and Low-Fiber.
+Four therapeutic diets supported: Mediterranean, Specific Carbohydrate Diet (SCD), GAPS, and Paleo Autoimmune Protocol (AIP).
 
 ---
 
@@ -138,7 +134,7 @@ Production secrets live in Google Secret Manager and are mounted as env vars on 
 
 ## Status
 
-Live, in production, with paying users. Active development continues on:
+Live, in production, with users. Active development continues on:
 - Improved meal-history analysis using LangGraph multi-agent workflows
 - Bowel-movement logging + symptom correlation analytics
 - Practitioner referral / B2B tier
