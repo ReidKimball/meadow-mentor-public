@@ -47,9 +47,9 @@ I created guidelines that govern how the AI documents backend code (JSDoc, error
 
 ### 3. Agent skills: `api-design`, `engineering-tutor`, `enforce-strict-scope`
 These are custom AI agent skills I designed and built:
-- **`api-design`** defines RESTful API conventions so every new endpoint follows the same patterns
-- **`engineering-tutor`** uses a Socratic method to force hypothesis-first debugging instead of trial-and-error
-- **`enforce-strict-scope`** audits `git diff` output to catch unrelated changes before they ship
+- **[`api-design`](https://github.com/ReidKimball/.agents/tree/main/skills/api-design)** defines RESTful API conventions so every new endpoint follows the same patterns
+- **[`engineering-tutor`](https://github.com/ReidKimball/.agents/tree/main/skills/engineering-tutor)** uses a Socratic method to force hypothesis-first debugging instead of trial-and-error
+- **[`enforce-strict-scope`](https://github.com/ReidKimball/.agents/tree/main/skills/enforce-strict-scope)** audits `git diff` output to catch unrelated changes before they ship
 
 These tools demonstrate that I think about process and quality, not just features.
 
