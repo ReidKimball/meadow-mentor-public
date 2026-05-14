@@ -1,0 +1,380 @@
+/*
+
+Use JSX Tailwind CSS for:
+- Component-specific styling
+- Layout and positioning (flex, grid, spacing, etc)
+- Responsive design
+- Quick prototyping
+- Small style adjustments
+- When you need consistent design tokens
+
+
+Use App.css for:
+- Global styles (like your body and root styles)
+- Complex animations
+- Custom design patterns that repeat across components
+- Styles that would be too verbose in Tailwind
+- Default theme variables
+- CSS resets
+- Third-party component overrides
+
+*/
+
+/*
+Colors
+text - black
+button text - white
+button bg - #1976D2
+alt button bg - #0E4277
+
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--letter-spacing-body);
+  line-height: var(--line-height-body);
+}
+
+/* Typography Styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  margin-top: 0;
+}
+
+h1 {
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-h1);
+  line-height: var(--line-height-h1);
+}
+
+h2 {
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-h2);
+  line-height: var(--line-height-h2);
+}
+
+h3 {
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-h3);
+  line-height: var(--line-height-h3);
+}
+
+p {
+  margin-top: 0;
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--letter-spacing-body);
+  line-height: var(--line-height-body);
+}
+
+.text-supporting {
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-light);
+  letter-spacing: var(--letter-spacing-supporting);
+  line-height: var(--line-height-supporting);
+}
+
+.text-emphasized {
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-emphasized);
+}
+
+header {
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+}
+
+/* Profile page */
+.profile-info-item {
+  padding: 12px 16px;
+  border-radius: 8px;
+  background-color: #f5f7fa;
+  transition: all 0.2s ease;
+}
+
+.profile-info-item:hover {
+  background-color: #eef1f6;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.profile-info-item .MuiTypography-subtitle2 {
+  margin-bottom: 4px;
+}
+
+/* Add this to your CSS */
+.logo_link {
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-medium);
+}
+
+.logo_link:hover, .logo_link:focus {
+  color: #2c7a4c; /* A slightly lighter green for hover state */
+  transform: scale(1.02);
+}
+
+.menu-services {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.loading-spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Creates semi-transparent dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.sign-up-form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  align-self: flex-start;
+  font-family: var(--font-body);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    /* This box-shadow trick fills the background with white */
+    box-shadow: 0 0 0 30px white inset !important;
+    /* Optionally, force the text color if the browser changes it */
+    -webkit-text-fill-color: #000 !important; /* Or your desired text color */
+    /* You might also need to reset the border if the browser adds one */
+    /* border: 1px solid #your-border-color !important; */
+    transition: background-color 5000s ease-in-out 0s; /* Another trick to delay browser style */
+}
+
+input::selection,
+.MuiInputBase-input::selection {
+  /* Option 1: A softer blue (adjust hex code as desired) */
+  background-color: #a0c4ff; /* Example: Light blue */
+  color: #000; /* Black text usually works well with light backgrounds */
+
+  /* background-color: #d3d3d3; Example: Light gray */
+  /* color: #000; */
+
+  /* background-color: rgba(25, 118, 210, 0.4); */ /* Example: Semi-transparent MUI blue */
+  /* color: #fff; */
+}
+
+/* --- Firefox uses a different pseudo-element --- */
+input::-moz-selection,
+.MuiInputBase-input::-moz-selection {
+  /* Make sure to use the same colors as above for consistency */
+  background-color: #a0c4ff; /* Example: Light blue */
+  color: #000;
+
+  /* background-color: #d3d3d3; */ /* Example: Light gray */
+  /* color: #000; */
+
+  /* background-color: rgba(25, 118, 210, 0.4); */ /* Example: Semi-transparent MUI blue */
+  /* color: #fff; */
+}
+
+.error-message {
+  color: red;
+  font-size: larger;
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-emphasized);
+}
+
+.add-ingredient-form fieldset {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  gap: 1rem;
+  border: 0;
+}
+
+.add-ingredient-form label {
+  text-align: left;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-regular);
+}
+
+.add-ingredient-form input {
+  background-color: white;
+  height: 32px;
+  border-radius: 4px;
+  border: 1px solid #D1D5DB;
+  color: black;  
+  padding: 9px 14px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  flex-grow: 1;
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--letter-spacing-body);
+}
+
+.image-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+section.form_practice {
+  background-color: #c9c9c9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ul.ingredients-list {
+  margin-bottom: 48px;
+  font-family: var(--font-body);
+}
+
+ul.ingredients-list > li {
+  color: #475467;
+  line-height: var(--line-height-body);
+  font-family: var(--font-body);
+  letter-spacing: var(--letter-spacing-body);
+}
+
+.ai-service-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  /* align-items: center; */
+  border-radius: 8px;
+  /*background: #ffcc00;*/
+  padding: 20px 20px;
+}
+
+.get-recipe-container {
+  display: flex;
+  /*justify-content: space-between;*/
+  justify-content:left;
+  gap: 32px;
+  align-items: center;
+  border-radius: 8px;
+  background: #dcdbd8;
+  padding: 10px 28px;
+}
+
+.get-recipe-container h3 {
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-h3);
+  letter-spacing: var(--letter-spacing-h3);
+  font-family: var(--font-heading);
+}
+
+.get-recipe-container p {
+  color: #6B7280;
+  font-size: 0.875rem;
+  line-height: var(--line-height-body);
+  font-family: var(--font-body);
+  letter-spacing: var(--letter-spacing-body);
+}
+
+.copy-message {
+  color: #1e4520;
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-emphasized);
+}
+
+/* orangy button */
+button {
+  border: none;
+  border-radius: 6px;
+  background: #155DFC;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  color: #FAFAF8;
+  padding: 9px 17px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-emphasized);
+  cursor: pointer;
+}
+
+.cta-button {
+  font-size: large;
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-emphasized);
+}
+
+.suggested-recipe-container {
+  color: #475467;
+  line-height: var(--line-height-body);
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-regular);
+  font-family: var(--font-body);
+  letter-spacing: var(--letter-spacing-body);
+}
+
+.suggested-recipe-container ul li, .suggested-recipe-container ol li {
+  margin-bottom: 8px;
+  font-family: var(--font-body);
+  letter-spacing: var(--letter-spacing-body);
+}
+
+#menu {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.askkay-background {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%; /* Adjust height as needed */
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  filter: blur(8px); /* Adjust blur amount as needed */
+  transform: scale(1.1); /* Prevents blurred edges from being visible */
+  z-index: 0;
+  opacity: 0.3; /* 30% opacity */
+}
+
+/* Soft green gradient overlay for brand cohesion */
+.askkay-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(220, 252, 231, 0.4), rgba(219, 234, 254, 0.4));
+  pointer-events: none;
+}

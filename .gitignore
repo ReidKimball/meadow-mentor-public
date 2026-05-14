@@ -1,0 +1,237 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependency directories
+node_modules
+
+# Build output
+dist
+dist-ssr
+*.local
+Dockerfile.*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.vscodecounter/*
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.code-workspace
+*.env.*
+*copy .jsx
+*copy*.js
+*copy*.json
+*copy*.css
+*.sql
+*.zip
+LLM System Prompt.md
+tour.model.js
+backend/scd-guide-f62f8-firebase-adminsdk-fbsvc-51898fda5f.json
+backend/models/meadow_mentor.users.json
+backend/ai_prompts/
+!backend/ai_prompts/public_recipe_chat/
+backend/services/aiService.js
+backend/services/geminiService.js
+backend/services/anthropicService.js
+backend/services/openAIService.js
+backend/json/
+backend/meal_log_250216.json
+backend/MongoDB Schemas.json
+backend/mongodb.js
+client/.env
+client/src/env-config.js
+client/src/context/Wrapper.jsx
+client/src/components/Account.jsx
+client/src/components/HealthDashboard.jsx
+client/src/components/Landing.jsx
+client/src/components/stripePayment_For Stripe Test and Live.jsx
+client/src/components/stripePayment.ts
+client/src/components/withAuth0.jsx
+privacy-policy.md
+client/src/components/MealPlanner_Service_250402_broken.jsx
+client/src/components/Meal_Service_broken.jsx
+/backend/_backups of mongoDB collections
+backend/models/meal_log_250216.json
+client/src/images/UI/ambience/OMJFHO0.png
+client/src/images/UI/ambience/OMJFHO1.png
+emails/emails.csv
+emails/25-04-27 newsletter.txt
+client/src/images/meadow_and_kay/Meadow_Mentor_OG_Image_1440x810_md.jpg
+client/src/images/meadow_and_kay/Meadow_Mentor_OG_Image_1920x1080.jpg
+client/src/images/meadow_and_kay/Meadow_Mentor_OG_Image_960x540_sm.jpg
+client/src/images/meadow_and_kay/kay.jpg
+client/src/images/meadow_and_kay/kay.png
+client/src/images/meadow_and_kay/chef_kay.png
+
+# Meadow Blog system
+meadow_blog/schemaTypes/old_postType_delete_me.ts
+client/System Prompt - Broad.md
+client/System Prompt - IBD Focused.md
+client/README.md
+client/README.md
+backend/controllers/zOLD_askKayController.js
+client/src/components/zOLD_stripePayment.ts
+.firebase/hosting.cHVibGlj.cache
+.firebaserc copy_250514
+public/404.html
+public/index.html
+backend/config/temp_delete/zOLD_server.js
+backend/controllers/temp_delete/zOLD_askKayController.js
+backend/controllers/temp_delete/zOLD_userController.js
+backend/controllers/zOLD_userController.js
+backend/controllers/zOLD_userController.js
+backend/routes/temp_delete/zOLD_index.js
+backend/routes/temp_delete/zOLD_userRoutes.js
+client/src/context/temp_delete/zOLD_AuthContext.jsx
+client/src/context/temp_delete/zOLD_PremiumStatusContext.jsx
+client/src/context/temp_delete/zOLD_Wrapper.jsx
+client/System Prompt - Broad App.md
+client/System Prompt - IBD Focused App.md
+client/System Prompt - Novel Synthesis Insights.md
+
+
+# misc
+backend/index_doc_Gemini_2.5_Flash_250521.js
+backend/index_doc_Gemini_2.5_Pro.js
+backend/index_doc_Gemini_read_only.js
+backend/index_doc_GPT-4.1.js
+backend/index_doc_SWE-1.js
+backend/LLM System Prompt - Backend Dev.md
+backend/config/temp_delete/.env-example
+backend/config/temp_delete/db.js
+backend/routes/temp_delete/meals_doc.js
+backend/services/tmp_delete/openAIService.js
+client/src/components/Pages/temp_delete/FoodJournal.jsx
+client/src/components/Pages/temp_delete/FoodJournal_Logger.jsx
+client/src/components/Pages/temp_delete/FoodJournal_Viewer.jsx
+client/src/components/Pages/FoodJournal_AI_Analysis_FUBARED.jsx
+UserFoodDBFeature/UserFoodDB_FeatureRequirements.md
+UserFoodDBFeature/UserFoodDBArchitecture.md
+UserFoodDBFeature/UserFoodDBTasks.md
+Terms.md
+backend/utils/Fix_Missing_MongoDB_Users.js
+backend/utils/gemini-compare-emails.js
+backend/utils/gemini_and_meadowmentor_users_email_list.csv
+backend/utils/gemini_cleaned_email_list.csv
+backend/utils/gpt4.1-compare-emails.js
+backend/utils/importFoodsFromJson.js
+backend/utils/missing_emails.csv
+backend/utils/renameCodeNameToDietCode.js
+backend/utils/resetUserLimits_old.js
+backend/utils/stringUtils.js
+backend/utils/subscribed_email_audience.csv
+backend/utils/updateDietGuidelines.js
+backend/utils/updateUsersDB_apiUsage-lastLogin.js
+backend/utils/updateUsersDB_sex-weight.js
+.windsurf/rules/_backups/add back to global rule.md
+.windsurf/rules/_backups/onboard-ai.md
+backend/services/text_to_speech_one_speaker.ts
+backend/services/text_to_speech_two_speakers.ts
+backend/services/voice_chat.ts
+jira_integration_guide.md
+zFeature_Plans/Enhanced_MCP_Food_Search_Multiple_Ingredients/Architecture_for_Enhanced_MCP_Food_Search_Multiple_Ingredients.md
+zFeature_Plans/Enhanced_MCP_Food_Search_Multiple_Ingredients/Create_Prompt_for_Enhanced_MCP_Food_Search_Architecture.md
+zInstructions_and_Context/Master_Architecture_Prompt_Template.md
+zInstructions_and_Context/zArchitecture_Tasks_old.md
+.windsurf/rules/_backups/onboarding-ai.md
+zFeature_Plans/Enhanced_MCP_Food_Search_Multiple_Ingredients/Prompt_to_Create_Enhanced_MCP_Food_Search_Architecture.md
+zInstructions_and_Context/old/Master_Architecture_Prompt_Template.md
+zInstructions_and_Context/old/zArchitecture_Tasks_old.md
+zFeature_Plans/gemini_mcp_food_search_integration/gemini_mcp_food_search_integration_architecture.md
+zFeature_Plans/gemini_mcp_food_search_integration/gemini_mcp_food_search_integration_tasks.md
+backend/controllers/temp_delete/aiResponseController.js
+weather
+meadow_blog/architecture.md
+meadow_blog/implementation_tasks.md
+evals/analyze_evals.py
+evals/eval_results.jsonl
+zInstructions_and_Context/example_airesponses.json
+client/src/images/UI/onboarding/GPTImage_Shop_Perimeter.png
+client/src/images/UI/askkay/Chat History Modal Delete Icons.jpg
+client/src/output.css
+client/src/output.css
+client/src/output.css
+client/src/components/Pages/AskKay/ThinkingIndicatorBot.jpg
+client/src/components/Pages/AskKay/ThinkingIndicatorTop.jpg
+backend/controllers/Generative UI Architecture.png
+COMMIT_MSG.tmp
+client/src/images/food/Imagen4_Ultra_Portobello_Mushroom_Burger_PALEO.jpg
+client/src/images/2025_reidkimball_01.jpg
+client/src/images/2025_reidkimball_02.jpg
+client/src/images/2025_reidkimball_03.jpg
+client/src/images/2025_reidkimball_04.jpg
+client/src/images/2025_reidkimball_05.jpg
+client/src/images/2025_reidkimball_06.jpg
+client/src/images/2025_reidkimball_08.jpg
+client/src/images/2025_reidkimball_09.jpg
+client/src/images/2025_reidkimball_10.jpg
+client/src/images/2025_reidkimball_11.jpg
+client/src/images/UI/recipe_cards/Recipe Card Component.png
+/backend/chroma_db
+backend/embeddings.py
+backend/load_chromadb.py
+client/src/components/Pages/AskKay/RecipeCard_v2_250805.jsx
+client/src/images/food/Imagen4_Ultra_Public_Recipe_Page_social_v03.jpg
+client/src/images/food/Imagen4_Ultra_Public_Recipe_Page_social_v07.jpg
+deploy.ps1
+backend/cleanJson.js
+backend/meadow_mentor.therapeutic-diet-foods-Low-Fiber-v2.json
+backend/scripts/updateDietTypes.js
+zFeature_Plans/Dietary Approach Patterns/Dietary Approach Architectural_Plan.md
+zFeature_Plans/update sys prompt.md
+backend/scripts/updateUserSchema.js
+backend/controllers/langchain.controller_250913.js
+zFeature_Plans/Recipe_Validation/Re-integration_Plan.md
+backend/controllers/langchain.controller_250920.js
+backend/langgraph/askKayAgent_250920.js
+client/src/components/features/ai/AskKay/AskKay_250920.jsx
+client/src/components/features/ai/AskKay/AskKay_250923_fubared.jsx
+backend/controllers/langchain.controller_250923.js
+client/src/components/features/ai/AskKay/AskKay_fubared.jsx
+client/src/output.css
+/backend/uploads
+backend/scripts/migrateRecipeImageSchema.js
+zFeature_Plans/Weekly_Meal_Planner_Agent/Meal_Planner_Redesign_Plan.md
+backend/scripts/migrate-user-api-usage.js
+zFeature_Plans/User_Health_Segregation_Plans/user_health_collection_plan_GPT-5-Codex copy.md
+zFeature_Plans/User_Health_Segregation_Plans/user_health_segregation_implementation_plan_Sonnet_4.5 copy.md
+zFeature_Plans/User_Health_Segregation_Plans/user_health_collection_plan_GPT-5-Codex copy.md
+zFeature_Plans/User_Health_Segregation_Plans/user_health_segregation_implementation_plan_Sonnet_4.5 copy.md
+*.webp
+zInstructions_and_Context/SEO Tests/search_console.md
+zInstructions_and_Context/SEO Tests/serach_console.html
+backend/scripts/rewrite-legacy-recipe-slugs.js
+frontend/src/app/diets/page copy.tsx
+client/src/components/features/bm-logging/BMTrendChart_FUBARED.jsx
+client/src/components/features/bm-logging/example_graph_code/App.tsx
+client/src/components/features/bm-logging/example_graph_code/index.tsx
+client/src/components/features/bm-logging/example_graph_code/package.json
+client/src/components/features/bm-logging/example_graph_code/usaUnemploymentAndGdp.tsx
+video/out/RecipeCardComp.mov
+video/out/RecipeCardComp.mp4
+zInstructions_and_Context/ERRORS/26-02-18-Internal-server-error.md
+zInstructions_and_Context/ERRORS/26-02-18-Internal-server-error.md
+client/src/components/features/bm-logging/example_graph_code/App.tsx
+client/src/components/features/bm-logging/example_graph_code/index.tsx
+client/src/components/features/bm-logging/example_graph_code/package.json
+client/src/components/features/bm-logging/example_graph_code/usaUnemploymentAndGdp.tsx
+.windsurf/skills/sanity-blog-publisher/skill.md
+backend/langgraph/zOLD/publicRecipeChatAgent.js
+zFeature_Plans/Production_Dev_Logging_Refactor/production-dev-logging-refactor-plan-156541.md
+.windsurf/rules/kimi-stop-thinking.md
+
+# Google OAuth client JSONs
+**/client_secret_*.json
+zInstructions_and_Context/260428_Security/security_cleanup_plan.md
+zInstructions_and_Context/260428_Public_Repo/PUBLIC_README.md

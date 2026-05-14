@@ -1,0 +1,7 @@
+[
+  {
+    "origin": ["https://meadowmentor.com", "https://www.meadowmentor.com"],
+    "method": ["GET", "HEAD"],
+    "maxAgeSeconds": 3600
+  }
+]

@@ -1,0 +1,69 @@
+<svg width="300" height="600" viewBox="0 0 300 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Body outline -->
+  <path d="M 150 20 Q 120 30 120 60 L 120 500 Q 120 540 150 560 Q 180 540 180 500 L 180 60 Q 180 30 150 20 Z" 
+        stroke="#d0d0d0" 
+        stroke-width="2" 
+        fill="#f9f9f9" 
+        opacity="0.3"/>
+  
+  <!-- Head/Neck outline -->
+  <ellipse cx="150" cy="30" rx="40" ry="30" stroke="#d0d0d0" stroke-width="2" fill="none" opacity="0.3"/>
+  
+  <!-- Digestive System -->
+  
+  <!-- Esophagus -->
+  <line x1="150" y1="60" x2="150" y2="140" 
+        stroke="#4a90e2" 
+        stroke-width="8" 
+        stroke-linecap="round"
+        id="esophagus"/>
+  
+  <!-- Stomach -->
+  <path d="M 150 140 Q 130 160 130 190 Q 130 220 150 230 Q 170 220 170 190 Q 170 160 150 140 Z" 
+        stroke="#4a90e2" 
+        stroke-width="3" 
+        fill="#e3f2fd"
+        id="stomach"/>
+  
+  <!-- Small Intestine (coiled) -->
+  <path d="M 150 230 Q 180 250 180 280 Q 180 310 150 320 Q 120 310 120 340 Q 120 370 150 380 Q 180 370 180 400 Q 180 420 150 430" 
+        stroke="#4a90e2" 
+        stroke-width="6" 
+        fill="none"
+        stroke-linecap="round"
+        id="small-intestine"/>
+  
+  <!-- Large Intestine (frame around small intestine) -->
+  <path d="M 150 430 L 150 450 Q 150 470 130 470 L 100 470 Q 90 470 90 460 L 90 260 Q 90 250 100 250 L 200 250 Q 210 250 210 260 L 210 460 Q 210 470 200 470 L 170 470 Q 150 470 150 490 L 150 520" 
+        stroke="#4a90e2" 
+        stroke-width="8" 
+        fill="none"
+        stroke-linecap="round"
+        id="large-intestine"/>
+  
+  <!-- Interactive Dots (will be styled/animated in React) -->
+  
+  <!-- Esophagus/GERD dot -->
+  <circle cx="150" cy="100" r="8" fill="#FFBF00" class="condition-dot" data-condition="gerd" opacity="0.9"/>
+  
+  <!-- Stomach/Gastritis dot -->
+  <circle cx="150" cy="180" r="8" fill="#FFBF00" class="condition-dot" data-condition="gastritis" opacity="0.9"/>
+  
+  <!-- Small Intestine/Celiac dot -->
+  <circle cx="150" cy="300" r="8" fill="#FFBF00" class="condition-dot" data-condition="celiac" opacity="0.9"/>
+  
+  <!-- Small Intestine/SIBO dot -->
+  <circle cx="150" cy="360" r="8" fill="#FFBF00" class="condition-dot" data-condition="sibo" opacity="0.9"/>
+  
+  <!-- Large Intestine/IBS dot -->
+  <circle cx="120" cy="350" r="8" fill="#FFBF00" class="condition-dot" data-condition="ibs" opacity="0.9"/>
+  
+  <!-- Large Intestine/Colitis dot -->
+  <circle cx="180" cy="400" r="8" fill="#FFBF00" class="condition-dot" data-condition="colitis" opacity="0.9"/>
+  
+  <!-- Lower Intestine/Diverticulitis dot -->
+  <circle cx="150" cy="480" r="8" fill="#FFBF00" class="condition-dot" data-condition="diverticulitis" opacity="0.9"/>
+  
+  <!-- Full System/Crohn's dot (positioned to the side) -->
+  <circle cx="220" cy="300" r="8" fill="#FFBF00" class="condition-dot" data-condition="crohns" opacity="0.9"/>
+</svg>

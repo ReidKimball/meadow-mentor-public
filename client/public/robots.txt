@@ -1,0 +1,6 @@
+# Allow all web crawlers full access, this is now handled by client\vite.config.js
+User-agent: *
+Allow: /
+
+# You can optionally add the sitemap location if you have one
+Sitemap: https://meadowmentor.com/sitemap.xml

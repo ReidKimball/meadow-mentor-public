@@ -1,0 +1,35 @@
+# Ignore everything by default; re-include only what the Dockerfile needs
+*
+
+# Include application sources
+!backend/**
+!client/**
+
+# --- Backend exclusions ---
+backend/node_modules/
+!backend/.env
+!backend/.env.*
+backend/**/.cache/
+backend/**/coverage/
+backend/**/logs/
+backend/**/*.log
+
+# --- Client exclusions ---
+client/node_modules/
+client/dist/
+!client/.env
+!client/.env.*
+client/**/.cache/
+client/**/.vite/
+client/**/coverage/
+client/**/cypress/
+client/**/.parcel-cache/
+client/**/.turbo/
+client/**/.sass-cache/
+client/**/.storybook/
+client/**/.nyc_output/
+
+# OS/editor noise (if any slipped in)
+**/.DS_Store
+**/Thumbs.db
+**/~$*
