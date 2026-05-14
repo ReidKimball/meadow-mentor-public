@@ -10,40 +10,67 @@ Meadow Mentor helps people with IBD, IBS, Crohn's, Ulcerative Colitis, and relat
 
 ## Why I built this
 
-I wanted to ship a real product that solves a problem I understand. People newly diagnosed with inflammatory conditions are often handed a complex therapeutic diet (SCD, GAPS, Paleo AIP, Mediterranean) with little practical guidance. The cognitive load of "is this ingredient allowed?" multiple times per day is exhausting. Meadow Mentor is the personal coach that guides people, one meal at a time.
+People newly diagnosed with inflammatory conditions are often handed a complex therapeutic diet (SCD, GAPS, Paleo AIP, Mediterranean) with little practical guidance. The cognitive load of "is this ingredient allowed?" multiple times per day is exhausting. Meadow Mentor is the personal coach that guides people, one meal at a time.
 
-This is a **production application** with real users — not a tutorial project.
+This is a **production application** with real users, not a tutorial project.
+
+---
+
+## How I built this: AI-augmented development
+
+I built Meadow Mentor by directing AI coding agents (Windsurf/Cascade, Claude, Cursor) to write the implementation while I owned the product and engineering decisions. This is an honest description of how the app was made, and I think it reflects where software development is heading.
+
+**What I owned:**
+- **Product vision and problem definition.** I identified the user need, defined the feature set, and made every prioritization call.
+- **Architecture and tech stack.** I chose React + Express + MongoDB + Firebase Auth + Gemini + LangChain/LangGraph + Stripe and defined how they connect. I can explain why each piece is there and what tradeoffs I considered.
+- **Design system.** I collaborated with AI to create a complete brand and UI specification ([Brand_Report_Dec2025_v3.md](zInstructions_and_Context/Brand%20Guidelines/Brand_Report_Dec2025_v3.md)): color palette with WCAG AA compliance rules, typography hierarchy, component patterns, voice and tone guidelines. Every frontend page is built against this spec.
+- **Code quality governance.** I created documentation standards and agent skills that constrain how AI writes code. Instead of accepting whatever the AI generated, I built systems to steer it toward consistent, documented, maintainable output.
+- **Agent skills I built:** `api-design` (RESTful API design standards), `engineering-tutor` (forces hypothesis-first debugging), `enforce-strict-scope` (audits git diffs for scope creep). These are reusable tools that enforce engineering discipline on AI-generated code.
+- **Deployment and infrastructure.** Docker multi-stage builds, Google Cloud Run, CI/CD scripting, secret management.
+- **Debugging and production issues.** When things broke in production (token expiry bugs, MongoDB connection failures, OAuth leaks), I diagnosed root causes and directed fixes.
+
+**What the AI wrote:**
+- The implementation code: React components, Express routes, Mongoose models, LangGraph agents, service files.
+- I reviewed, tested, and iterated on all of it. But I did not hand-write the logic line by line.
+
+---
+
+## What I'd showcase
+
+If you're reviewing this repo, here are the artifacts that best represent how I work:
+
+### 1. Design system: `Brand_Report_Dec2025_v3.md`
+A 150-line brand specification I created that defines colors, typography, accessibility rules (WCAG AA), component patterns, voice/tone, and footer architecture. This document is what the AI references when building any frontend page. It demonstrates product thinking: I defined *what the app should look and feel like* for a vulnerable user population, then enforced that consistently across the codebase.
+
+### 2. Documentation and code quality standards
+I created guidelines that govern how the AI documents backend code (JSDoc, error handling patterns) and frontend code (component structure, prop documentation). Rather than cleaning up after the AI, I built rules that produce clean code from the start.
+
+### 3. Agent skills: `api-design`, `engineering-tutor`, `enforce-strict-scope`
+These are custom AI agent skills I designed and built:
+- **`api-design`** defines RESTful API conventions so every new endpoint follows the same patterns
+- **`engineering-tutor`** uses a Socratic method to force hypothesis-first debugging instead of trial-and-error
+- **`enforce-strict-scope`** audits `git diff` output to catch unrelated changes before they ship
+
+These tools demonstrate that I think about process and quality, not just features.
+
+### 4. Architecture decisions
+The codebase reflects deliberate technical choices I can walk through:
+- **Auth:** Firebase Auth on the client, Firebase Admin SDK verification on the server, MongoDB for app data. Three data sources unified in a single React Context (`UserContext.jsx`).
+- **AI agents:** LangChain + LangGraph with tool-calling for diet-aware recipe generation and chat.
+- **Payments:** Stripe via the Firestore extension, with real-time subscription state synced to the frontend.
+- **Deployment:** Dockerized multi-stage build deployed to Cloud Run with a single PowerShell script.
 
 ---
 
 ## Tech Stack
 
-**Frontend**
-- React 19 + Vite
-- Material UI v7 + Tailwind CSS
-- React Router 7
-- Firebase Auth (client SDK)
-- Stripe (via Firestore extension)
+**Frontend:** React 19, Vite, Material UI v7, Tailwind CSS, React Router 7, Firebase Auth, Stripe (Firestore extension)
 
-**Backend**
-- Node.js + Express
-- MongoDB Atlas + Mongoose
-- Firebase Admin SDK (auth verification)
-- LangChain + LangGraph (agent workflows)
-- Google Gemini (primary LLM)
-- Sanity CMS (blog content)
-- Socket.IO (streaming chat)
+**Backend:** Node.js, Express, MongoDB Atlas, Mongoose, Firebase Admin SDK, LangChain + LangGraph, Google Gemini, Sanity CMS, Socket.IO
 
-**Infrastructure**
-- Docker (multi-stage build)
-- Google Cloud Run (autoscaling container hosting)
-- Google Artifact Registry (image storage)
-- Google Secret Manager (production secrets)
-- Prerender.io (SEO for SPA)
+**Infrastructure:** Docker, Google Cloud Run, Google Artifact Registry, Google Secret Manager, Prerender.io
 
-**Companion services**
-- Next.js 16 marketing site (separate Cloud Run service)
-- Sanity Studio (headless CMS for blog)
+**Companion services:** Next.js 16 marketing site (separate Cloud Run service), Sanity Studio (headless CMS)
 
 ---
 
@@ -65,82 +92,53 @@ This is a **production application** with real users — not a tutorial project.
                     └──────────┘   └──────────┘   └──────────┘
 ```
 
-- **Auth flow:** client signs in via Firebase Auth → Firebase ID token sent as `Bearer` header → Express middleware verifies token via Firebase Admin SDK → user profile loaded from MongoDB
-- **AI flow:** user request → controller → LangGraph agent → tool calls (e.g. food DB lookup, recipe validation) → streamed response via Socket.IO
-- **Subscription flow:** Stripe Firestore extension writes subscription state to Firestore → React `UserContext` subscribes to Firestore changes → backend verifies premium status from Firestore on protected routes
+- **Auth flow:** Firebase Auth sign-in, ID token as Bearer header, Express middleware verifies via Admin SDK, user profile loaded from MongoDB
+- **AI flow:** user request, controller, LangGraph agent, tool calls (food DB lookup, recipe validation), streamed response via Socket.IO
+- **Subscription flow:** Stripe Firestore extension writes subscription state, React UserContext subscribes to Firestore changes, backend verifies premium status on protected routes
 
 ---
 
 ## Features
 
-- **AskKay** — streaming AI chat with diet-aware persona
-- **AI recipe generation** — generate compliant recipes from available ingredients
-- **AI weekly meal plan** — generate a 7-day plan
-- **Saved recipes** — persist and share AI-generated recipes
+- **AskKay:** streaming AI chat with a diet-aware persona
+- **AI recipe generation:** compliant recipes from available ingredients
+- **AI weekly meal plan:** 7-day meal plan generation
+- **Saved recipes:** persist and share AI-generated recipes
 
 Four therapeutic diets supported: Mediterranean, Specific Carbohydrate Diet (SCD), GAPS, and Paleo Autoimmune Protocol (AIP).
-
----
-
-## Recommended showcase files
-
-If you're reviewing this for a hiring decision, here are the files I'd point to as representative of my code style and engineering thinking:
-
-### Backend — `backend/middleware/authMiddleware.js`
-Clean, single-responsibility Express middleware that verifies Firebase ID tokens. JSDoc documented, handles the common auth failure modes explicitly (missing header, malformed bearer, expired token). Demonstrates how the backend trusts the frontend's Firebase Auth session without maintaining its own session store.
-
-### Frontend — `client/src/context/UserContext.jsx`
-React Context that bridges three separate data sources into a single `useUser()` hook: Firebase Auth (login state), Firestore real-time subscriptions (Stripe subscription status), and a MongoDB user profile (app-specific data like diet preferences and API usage limits). Includes a `getFreshIdToken` helper that proactively refreshes tokens to prevent `auth/id-token-expired` errors on protected API calls — a real production bug I diagnosed and fixed.
 
 ---
 
 ## Local setup
 
 ```bash
-# Clone
 git clone https://github.com/ReidKimball/meadow-mentor-public.git
 cd meadow-mentor-public
 
-# Install
 cd backend && npm install
 cd ../client && npm install
 ```
 
-Create `backend/.env.config` with the keys defined in `backend/check_env_vars.js` (you'll need your own Firebase project, MongoDB Atlas cluster, Gemini API key, and Stripe account to run a full local copy — this app is not a one-click clone).
+Create `backend/.env.config` with the keys defined in `backend/check_env_vars.js` (you'll need your own Firebase project, MongoDB Atlas cluster, Gemini API key, and Stripe account).
 
 ```bash
-# Terminal 1 — backend
+# Terminal 1
 cd backend && npm run dev
 
-# Terminal 2 — frontend
+# Terminal 2
 cd client && npm run dev
 ```
 
 ---
 
-## Deployment
-
-A single PowerShell script handles building and deploying both services to Cloud Run:
-
-```powershell
-.\deploy.ps1 app        # React + Express
-.\deploy.ps1 marketing  # Next.js marketing site
-.\deploy.ps1 all
-```
-
-Production secrets live in Google Secret Manager and are mounted as env vars on the Cloud Run service.
-
----
-
 ## Status
 
-Live, in production, with users. Active development continues on:
-- Improved meal-history analysis using LangGraph multi-agent workflows
-- Bowel-movement logging + symptom correlation analytics
-- Practitioner referral / B2B tier
+Live, in production, with real users. Active development continues on:
+- Meal-history analysis using LangGraph multi-agent workflows
+- Bowel-movement logging and symptom correlation analytics
 
 ---
 
 ## About
 
-Built solo by [Reid Kimball](https://github.com/ReidKimball). Open to questions about any architectural or implementation choice — happy to walk through the codebase live.
+Built solo by [Reid Kimball](https://github.com/ReidKimball) using AI-augmented development. Open to questions about any product, architecture, or process decision. Happy to walk through how I work live.
