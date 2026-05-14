@@ -18,7 +18,7 @@ This is a **production application** with real users, not a tutorial project.
 
 ## How I built this: AI-augmented development
 
-I built Meadow Mentor by directing AI coding agents (Windsurf/Cascade, Claude, Cursor) to write the implementation while I owned the product and engineering decisions. This is an honest description of how the app was made, and I think it reflects where software development is heading.
+I built Meadow Mentor by directing AI coding agents (Windsurf/Cascade, Claude, GPT, Gemini) to write the implementation while I owned the product and engineering decisions. This is an honest description of how the app was made, and I think it reflects where software development is heading.
 
 **What I owned:**
 - **Product vision and problem definition.** I identified the user need, defined the feature set, and made every prioritization call.
@@ -27,7 +27,7 @@ I built Meadow Mentor by directing AI coding agents (Windsurf/Cascade, Claude, C
 - **Code quality governance.** I created documentation standards and agent skills that constrain how AI writes code. Instead of accepting whatever the AI generated, I built systems to steer it toward consistent, documented, maintainable output.
 - **Agent skills I built:** `api-design` (RESTful API design standards), `engineering-tutor` (forces hypothesis-first debugging), `enforce-strict-scope` (audits git diffs for scope creep). These are reusable tools that enforce engineering discipline on AI-generated code.
 - **Deployment and infrastructure.** Docker multi-stage builds, Google Cloud Run, CI/CD scripting, secret management.
-- **Debugging and production issues.** When things broke in production (token expiry bugs, MongoDB connection failures, OAuth leaks), I diagnosed root causes and directed fixes.
+- **Debugging and production issues.** When things broke in production (token expiry bugs, MongoDB connection failures, OAuth leaks), I dug into cloud run logs, terminal errors, mongoDB data, and LangSmith traces in order to give AI the context it needed. Then I directed fixes after it presented potential solutions.
 
 **What the AI wrote:**
 - The implementation code: React components, Express routes, Mongoose models, LangGraph agents, service files.
@@ -133,9 +133,7 @@ cd client && npm run dev
 
 ## Status
 
-Live, in production, with real users. Active development continues on:
-- Meal-history analysis using LangGraph multi-agent workflows
-- Bowel-movement logging and symptom correlation analytics
+Live, in production, with real users.
 
 ---
 
